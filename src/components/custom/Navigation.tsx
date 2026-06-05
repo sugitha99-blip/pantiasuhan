@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import logo from '../../../public/images/KB.jpg';
+
 const navLinks = [
   { name: 'Beranda', href: '#hero' },
   { name: 'Tentang', href: '#about' },
@@ -53,7 +55,8 @@ export default function Navigation() {
               className="flex items-center gap-2 group"
             >
               <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Heart className="w-5 h-5 text-white" />
+                {/* <Heart className="w-5 h-5 text-white" /> */}
+                <img src={logo} alt="Kasih Bonso Logo" className="w-5 h-5" />
               </div>
               <div className={`hidden sm:block transition-colors ${isScrolled ? 'text-gray-800' : 'text-gray-800'}`}>
                 <p className="font-serif text-lg leading-none">Kasih Bonso</p>
