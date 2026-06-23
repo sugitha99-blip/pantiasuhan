@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'Tentang', href: '#about' },
   { name: 'Visi & Misi', href: '#vision' },
   { name: 'Anak-Anak', href: '#children' },
+  { name: 'Blog', href: '#blog' },
   { name: 'Kebutuhan', href: '#needs' },
   { name: 'Donasi', href: '#donate' },
 ];
@@ -55,7 +56,6 @@ export default function Navigation() {
               className="flex items-center gap-2 group"
             >
               <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-                {/* <Heart className="w-5 h-5 text-white" /> */}
                 <img src={logo} alt="Kasih Bonso Logo" className="w-5 h-5" />
               </div>
               <div className={`hidden sm:block transition-colors ${isScrolled ? 'text-gray-800' : 'text-gray-800'}`}>
@@ -113,39 +113,40 @@ export default function Navigation() {
       {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-500 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
         <div
-          className="absolute inset-0 bg-black/20 backdrop-blur-sm"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-        <div
-          className={`absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl p-6 transition-all duration-500 ${
-            isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
+          className={`absolute top-0 right-0 w-80 max-w-full h-full bg-white shadow-2xl transition-transform duration-500 ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-gray-700 hover:text-orange-500 font-medium py-2 transition-colors"
+          <div className="p-6 pt-20">
+            <div className="space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className="block text-lg font-medium text-gray-700 hover:text-orange-500 transition-colors py-2"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Button
+                onClick={() => scrollToSection('#donate')}
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-full"
               >
-                {link.name}
-              </a>
-            ))}
-            <Button
-              onClick={() => scrollToSection('#donate')}
-              className="bg-orange-500 hover:bg-orange-600 text-white rounded-full mt-2"
-            >
-              <Heart className="w-4 h-4 mr-2" />
-              Jadi Donatur
-            </Button>
+                <Heart className="w-4 h-4 mr-2" />
+                Jadi Donatur
+              </Button>
+            </div>
           </div>
         </div>
       </div>
