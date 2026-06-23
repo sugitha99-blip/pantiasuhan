@@ -5,6 +5,7 @@ const quickLinks = [
   { name: 'Tentang Kami', href: '#about' },
   { name: 'Visi & Misi', href: '#vision' },
   { name: 'Anak-Anak', href: '#children' },
+  { name: 'Blog', href: '#blog' },
   { name: 'Kebutuhan', href: '#needs' },
   { name: 'Donasi', href: '#donate' },
 ];
@@ -113,54 +114,40 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
-              {contacts.map((contact, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <contact.icon className="w-5 h-5 text-orange-500 flex-shrink-0" />
+              {contacts.map((contact) => (
+                <div key={contact.label} className="flex items-start gap-3">
+                  <contact.icon className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <div>
+                    <p className="text-gray-300 text-sm font-medium">{contact.label}</p>
                     <p className="text-gray-400 text-sm">{contact.value}</p>
-                    <p className="text-gray-500 text-xs">{contact.label}</p>
                   </div>
                 </div>
               ))}
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <p className="text-gray-400 text-sm">kasihbonso@gmail.com</p>
-              </div>
             </div>
           </div>
 
-          {/* Bank Info */}
+          {/* Map or Extra Info */}
           <div>
-            <h4 className="font-serif text-lg mb-6">Rekening Donasi</h4>
-            <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
-                  <span className="text-orange-600 font-bold text-xs">BRI</span>
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Bank BRI</p>
-                  <p className="text-xs text-gray-400">a.n. Panti Asuhan Kasih Bonso</p>
-                </div>
+            <h4 className="font-serif text-lg mb-6">Lokasi</h4>
+            <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+              <div className="aspect-video bg-gray-800 rounded-xl flex items-center justify-center">
+                <MapPin className="w-8 h-8 text-orange-500" />
               </div>
-              <p className="font-mono text-lg text-orange-400 tracking-wider">
-                3473-01-036591-53-4
+              <p className="text-gray-400 text-sm mt-3 text-center">
+                Ngabang, Kalimantan Barat
               </p>
             </div>
-            <p className="text-gray-500 text-xs mt-4">
-              SK Dinsosnakertrans Kab. Landak No. 466.314689/Dinsosnakertran-B/2015
-            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-500 text-sm text-center sm:text-left">
-              © {new Date().getFullYear()} Panti Asuhan Kasih Bonso. 
-              Yayasan El-Elyon Dayak Borneo.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-gray-500 text-sm">
+              &copy; {new Date().getFullYear()} Panti Asuhan Kasih Bonso. All rights reserved.
             </p>
             <p className="text-gray-500 text-sm flex items-center gap-1">
-              Dibuat dengan <Heart className="w-4 h-4 text-orange-500 fill-orange-500" /> untuk anak-anak
+              Dibuat dengan <Heart className="w-4 h-4 text-orange-500 fill-orange-500" /> untuk anak-anak kami
             </p>
           </div>
         </div>
