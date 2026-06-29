@@ -131,10 +131,11 @@ export default function Footer() {
             <h4 className="font-serif text-lg mb-6">Lokasi</h4>
             <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
               <div className="aspect-video bg-gray-800 rounded-xl flex items-center justify-center">
-                <MapPin className="w-8 h-8 text-orange-500" />
+                {/* <MapPin className="w-8 h-8 text-orange-500" /> */}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3259.441630181032!2d109.97828983948503!3d0.3789634541681562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fd179865dd04c1%3A0xad32a8a6aab1d54d!2sPanti%20Asuhan%20KASIH%20BONSO!5e0!3m2!1sid!2sid!4v1782752335327!5m2!1sid!2sid" className="w-full h-[450px] border-0 rounded-2xl" allowFullScreen loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
               </div>
               <p className="text-gray-400 text-sm mt-3 text-center">
-                Ngabang, Kalimantan Barat
+                <a href="https://maps.app.goo.gl/8Ej89B3QmsZyLYqU9" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline ml-1">Panti Asuhan KASIH BONSO</a>
               </p>
             </div>
           </div>
